@@ -1,14 +1,25 @@
 import React from 'react';
 
-const Buttons = props =>
-{
-    const {text2,text3} = props;
-    return(
+class Buttons extends React.Component{
+    state={
+        count: 0,
+    }
+    handleClick = () => {
+        this.setState({
+            count: this.state.count+1,
+        })
+    }
+    render(){
+        const{ count } = this.state;
+        return(
         <div>
-            <button type="button">{props.text}</button>
-             <span>{props.text2}</span>
+            <h1>Manzanas: {count}</h1>
+            <button onClick={this.handleClick} type="button">Click</button>
         </div>
-    )
+        )
+    }
 }
+
+
 
 export default Buttons;
